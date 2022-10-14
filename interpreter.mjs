@@ -10,6 +10,7 @@ export default class Interpreter{
             'jmp' : 0,
             'cmp' : 0,
             'set' : 0,
+            'sub' : 0,
         }
     };
 
@@ -28,9 +29,8 @@ export default class Interpreter{
         let ebx;
         let ecx;
 
-
         while(!(mem.read(ip) === "end")) {
-            //console.log(mem.read(ip));
+            console.log(mem.read(ip));
             switch (mem.read(ip)) {
                 case 'input':
                     mem.write(process.argv[curArgNum], mem.read(ip+1));
@@ -121,6 +121,20 @@ export default class Interpreter{
                     }
                     mem.write(ebx, eax);
                     ip+=3;
+                    break;
+                case 'sub':
+                    eax = mem.read(mem.read(ip+1)*1)*1;
+                    ebx = mem.read(mem.read(ip+2)*1)*1;
+                    try {
+                        if(!Number.isFinite(eax)) throw new TypeError('args of add command works with numbers.');
+                        if(!Number.isFinite(ebx)) throw new TypeError('args of add command works with numbers.');
+                    } catch (e) {
+                        console.error(e.message);
+                        return undefined;
+                    }
+                    ecx = eax - ebx;
+                    mem.write(ecx, mem.read(ip+3));
+                    ip+=4;
                     break;
             }
         }

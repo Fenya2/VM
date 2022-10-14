@@ -1,0 +1,4 @@
+input 0
+mul 0 0 1
+output 1
+end
