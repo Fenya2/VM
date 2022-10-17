@@ -1,10 +1,22 @@
+;factorial of
 input 0
-set 1 1
-set 2 0
-set 3 1
-cmp 1 0 2
-mul 0 3 3
-sub 0 1 0
-jmp 3 2
-output 3
+;check for zero
+eq 0 !0
+jmp main
+add 0 0 !1
+output 0
+jmp end
+
+main:
+;result
+mov 1 !1
+
+loop:
+mul 1 1 0
+sub 0 0 !1
+eq 0 !0
+jmp loop
+output 1
+
+end:
 end

@@ -1,0 +1,22 @@
+;num 1
+input 0
+;num 2
+input 1
+check:
+eq 0 1
+jmp main
+jmp end
+
+main:
+more 0 1
+jmp second_var
+sub 0 0 1
+jmp check
+
+second_var:
+sub 1 1 0
+jmp check
+
+end:
+output 0
+end

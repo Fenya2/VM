@@ -10,7 +10,7 @@ export default class Memory{
         this._memory = new Array(size);
         this._size = this._memory.length;
     }
-    write(val, addr) {
+    write(addr, val) {
         addr = Number(addr);
         try{
             if (!Number.isInteger(addr) || addr < 0 || addr > this._size-1)
@@ -33,7 +33,7 @@ export default class Memory{
         }
         return this._memory[addr];
     }
-    getStack() { // "STACK" todo Von Neumann architecture???
+    getMemory() {
         return this._memory;
     }
 }
