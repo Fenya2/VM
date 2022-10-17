@@ -9,7 +9,7 @@ export default class Processor {
         this.cur_input = 3;
         this.dict = {
             'input' : 0,
-            'output': 0,
+            'output' : 0,
             'add' : 0,
             'mul' : 0,
             'sub' : 0,
