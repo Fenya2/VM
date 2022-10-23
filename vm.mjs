@@ -18,6 +18,3 @@ try {
 } catch (e) {
     console.error(e.message);
 }
-
-//todo make abs command.
-//todo make for int check.
